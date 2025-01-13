@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  {{ name }}
+
+  <ion-input label="name"></ion-input>
+
+  <ion-img [src]="person.url" [alt]="person.url" style="width: 15%;"></ion-img>
+
+  <ion-list *ngFor = "let article of articles; let i = index">
+    <ion-item> {{ article }} </ion-item>
+  </ion-list>
+
+  <ion-input placeholder="name" [(ngModel)]="name"></ion-input>
+
+  <div>Prénom obligatoire</div>
+
+  <ion-button (click)="onChange()"> <ion-icon name="add"></ion-icon>
+
+  </ion-button>
+
+  <app-article></app-article>
+  
+</ion-content>
