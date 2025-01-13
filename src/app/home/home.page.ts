@@ -18,6 +18,7 @@ export class HomePage {
   articles: any = ["pc", "clavier", "ecran"];
   like: any;
 
+
   constructor() {}
 
   onChange(){

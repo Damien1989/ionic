@@ -1,28 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { Article } from '../model/Article';
 
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss'],
-  imports:[ArticleComponent, IonicModule]
+  imports: [IonicModule]
 })
-export class ArticleComponent  implements OnInit {
+export class ArticleComponent {
 
-  libelle!:string;
-  price!:number;
-
-  like!:number
+  article!:Article;
+  likeText:string = '👍';
 
   constructor() {
-    this.libelle = "PC";
-    this.price = 15000;
-    this.like = 0
-   }
+    this.article = new Article( 15, "PC", 1500, 0);
+  }
 
-  ngOnInit() {}
-  
   onLike(){
-    this.like++;
+    if( this.article.like >= 1 ){
+      this.article.like--; 
+      this.likeText = "👍"
+    }
+    else{
+      this.article.like++;
+      this.likeText = "👎"
+    }
   }
 }
