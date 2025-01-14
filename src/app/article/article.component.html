@@ -1,4 +1,4 @@
-{{ article.libelle }} 
+<a routerLink="/detail/{{ article.id }}" >{{ article.libelle }}</a>
  
 <ion-button (click)="onLike()">{{ likeText }}</ion-button> 
 {{ article.like }}

@@ -1,22 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { Article } from '../model/Article';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss'],
-  imports: [IonicModule]
+  imports: [IonicModule, RouterLink]
 })
 export class ArticleComponent {
 
-  article!:Article;
   likeText:string = '👍';
 
-  constructor() {
-    this.article = new Article( 15, "PC", 1500, 0);
-  }
 
+  @Input() article!: Article;
+   
+  constructor() {
+    
+  }
   onLike(){
     if( this.article.like >= 1 ){
       this.article.like--; 
